@@ -1,0 +1,55 @@
+<div [ngClass]="{ 'darkMode bg-dark': isChecked}" class="mat-app-background" >
+    <nav class="container navbar" id="nav">
+        <a id="title" href="" class="navbar-brand" [ngClass]="{'text-white': isChecked}">Book Finder</a>
+        <app-books-search [isChecked]="isChecked"></app-books-search>
+    </nav>       
+    <section id="books-area" class="container"  *ngIf="!books">
+        <div class="row mb-5">
+            <div class="card mb-3" [ngClass]="{'bg-dark': isChecked}" style="max-width: 100%;" *ngFor="let num of div_num">
+                <div class="row g-0">
+                    <div class="col-2">
+                        <div class="img-fluid rounded-start" style="width: 240px; height: 200px;"></div>
+                    </div>
+                    <div class="col-10 ">
+                        <div class="card-body">
+                            <h5 class="card-title placeholder-glow"><span class="placeholder col-3"></span></h5>
+                            <p class="card-text placeholder-glow"><span class="placeholder col-4"></span></p>
+                            <p class="card-text placeholder-glow"><span class="placeholder col-3"></span></p>
+                            <a class="card-link placeholder-glow"><span class="placeholder col-1"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="books-area" class="container" *ngIf="books">
+        <div class="row mb-5" *ngFor="let item of books.items" >
+            <div class="card mb-3" [ngClass]="{'bg-dark': isChecked}" style="max-width: 100%;">
+                <div class="row g-0">
+                    <div class="col-2">
+                        <img [src]="getImg(item.id)" class="img-fluid rounded-start" alt="">
+                    </div>
+                    <div class="col-10 ">
+                        <div class="card-body">
+                            <h5 class="card-title">{{item.volumeInfo.title}}</h5>
+                            <p class="card-text">{{item.volumeInfo.subtitle}}</p>
+                            <p class="card-text" *ngIf="item.volumeInfo.authors">Author(s): {{item.volumeInfo.authors}}</p>
+                            <a class="card-link" href="{{item.volumeInfo.infoLink}}">See more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container">
+       <span><i class="fa" [ngClass]="{'fa-moon-o': isChecked, 'fa-sun-o': !isChecked}" aria-hidden="true"></i></span>
+       <mat-slide-toggle class="toggle" (change)="darkMode(isChecked)" [(ngModel)]="isChecked"></mat-slide-toggle>
+    </footer>
+
+</div>
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+<section class="row align-items-center">
+    <div class="d-flex" role="search">
+        <input [ngClass]="{'error': warn}" (keydown.enter)="searchBook(search.value)" class="form-control me-2" id="search" type="search" placeholder="Ex: Harry Porter" aria-label="search" #search>
+        <button class="btn" [ngClass]="{'btn-dark':!isChecked, 'btn-outline-light': isChecked}" (click)="searchBook(search.value)">Search</button>
+    </div>
+</section>
+
+

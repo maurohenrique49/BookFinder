@@ -1,0 +1,35 @@
+*{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;;
+}
+body{
+    color: rgba(0, 0, 0, 0.925);
+    margin: 2em;
+    
+}
+html, body{
+    height: 100%;
+}
+#title{
+    font-size: 240%;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+@media (max-width: 576px){
+    #title{
+        font-size: 200%;
+    }
+}
+#bookimg{
+    position: sticky;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+header{
+    position: relative;
+    text-align: center;
+    height: 100vh;
+}
+#book{
+    width: 60%;
+}
