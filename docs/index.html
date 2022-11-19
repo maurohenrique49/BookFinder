@@ -3,22 +3,12 @@
   <title>BookFinder</title>
   <base href="/bookfinder/">
   <script>
-    sessionStorage.redirect = location.href;
+    if(location.href != 'https://maurohenrique49.github.io/bookfinder/home'){
+      sessionStorage.redirect = location.href;
+    }
   </script>
   <meta http-equiv="refresh" content="0;URL='/'">
-  <script>
-    (function () {
-      // Retrieve the URL the user was trying to access when receiving the 404.
-      var redirect = sessionStorage.redirect;
-      // Remove the URL from sessionStorage.
-      delete sessionStorage.redirect;
-      // Check if we actually need to redirect.
-      if (redirect && redirect != location.href) {
-        // We need to redirect to the URL the user was trying to access.
-        history.replaceState(null, null, redirect);
-      }
-    })();
-  </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
